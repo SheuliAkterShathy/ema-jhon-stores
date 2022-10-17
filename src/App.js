@@ -5,10 +5,12 @@ import About from './components/About/About';
 import Inventory from './components/Inventory/Inventory';
 import Login from './components/login/Login';
 import Orders from './components/Orders/Orders';
+import Shipping from './components/Shipping/Shipping';
 import Shop from './components/Shop/Shop';
 import SignUp from './components/SignUp/SignUp';
 import Main from './layouts/Main';
 import { productsAndCartLoader } from './loaders/productsAndCartLoader';
+import PrivateRoutes from './routes/PrivateRoutes';
 
 function App() {
  const router = createBrowserRouter([
@@ -28,7 +30,11 @@ function App() {
       },
       {
         path:'/inventory',
-        element:<Inventory></Inventory>
+        element:<PrivateRoutes><Inventory></Inventory></PrivateRoutes>
+      },
+      {
+        path:'/shipping',
+        element:<PrivateRoutes><Shipping></Shipping></PrivateRoutes>
       },
       {
         path:'about',
